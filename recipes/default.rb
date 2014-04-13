@@ -2,7 +2,7 @@
 # Cookbook Name:: sysdig
 # Recipe:: default
 #
-# Copyright 2014, Texas A&M
+# Copyright 2014, Jim Rosser
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -26,19 +26,25 @@
 
 case node['sysdig']['install_method']
 when 'binary'
+  case node['platform_family']
+  when 'rhel', 'fedora'
+    execute 'add_dkms' do
+      command 'rpm --quiet -i http://mirror.us.leaseweb.net/epel/6/i386/epel-release-6-8.noarch.rpm'
+      creates '/usr/sbin/dkms'
+      only_if { node['platform_family'] == 'rhel' }
+    end
 
-  case node.platform_family
-  when 'rhel'
     yum_repository 'sysdig' do
       description 'Official sysdig repository'
-      baseurl 'http://download.draios.com/stable/rpm/'
+      baseurl 'http://download.draios.com/stable/rpm/$basearch'
       gpgkey 'https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public'
       action :create
     end
   when 'debian'
     apt_repository 'sysdig' do
       uri 'http://download.draios.com/stable/deb'
-      components ['stable']
+      components ["stable-$(ARCH)/"]
+      key 'https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public'
     end
   else
     Chef::Log.error("this distro is not supported")
