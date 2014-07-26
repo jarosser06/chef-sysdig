@@ -28,10 +28,8 @@ case node['sysdig']['install_method']
 when 'binary'
   case node['platform_family']
   when 'rhel', 'fedora'
-    execute 'add_dkms' do
-      command 'rpm --quiet -i http://mirror.us.leaseweb.net/epel/6/i386/epel-release-6-8.noarch.rpm'
-      creates '/usr/sbin/dkms'
-      only_if { node['platform_family'] == 'rhel' }
+    if node['platform_family'] == 'rhel'
+      include_recipe 'yum-epel'
     end
 
     yum_repository 'sysdig' do
