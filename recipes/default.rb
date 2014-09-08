@@ -43,6 +43,7 @@ when 'binary'
       uri 'http://download.draios.com/stable/deb'
       components ["stable-$(ARCH)/"]
       key 'https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public'
+      not_if 'apt-key list | grep "EC51E8C4"'
     end
   else
     Chef::Log.error("this distro is not supported")
