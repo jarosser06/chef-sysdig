@@ -49,6 +49,7 @@ when 'binary'
     Chef::Log.error("this distro is not supported")
   end
   package 'sysdig' do
+    version node['sysdig']['version']
     action :install
   end
 else
