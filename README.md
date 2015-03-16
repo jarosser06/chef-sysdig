@@ -33,6 +33,12 @@ Attributes
     <td>sysdig install method</td>
     <td>binary</td>
   </tr>
+  <tr>
+    <td><tt>['sysdig']['version']</tt></td>
+    <td>String</td>
+    <td>sysdig package version</td>
+    <td>nil</td>
+  </tr>
 </table>
 
 Usage
@@ -62,7 +68,7 @@ License and Authors
 - Author:: Jim Rosser(jarosser06@gmail.com)
 
 ```text
-copyright (C) 2014 Jim Rosser
+copyright (C) 2014-2015 Jim Rosser
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
