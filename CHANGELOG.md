@@ -1,6 +1,10 @@
 sysdig CHANGELOG
 ================
 
+0.3.1
+-----
+- [n1koo] - Added optional node attribute for sysdig version
+
 0.3.0
 -----
 - [darron] - Add the apt repo only if its not already added
