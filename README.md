@@ -68,7 +68,7 @@ License and Authors
 - Author:: Jim Rosser(jarosser06@gmail.com)
 
 ```text
-copyright (C) 2014-2015 Jim Rosser
+copyright (C) 2014-2016 Jim Rosser
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
