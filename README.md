@@ -39,7 +39,44 @@ Attributes
     <td>sysdig package version</td>
     <td>nil</td>
   </tr>
+  <tr>
+    <td><tt>['sysdig']['yum']['base_url']</tt></td>
+    <td>String</td>
+    <td>YUM repo base url</td>
+    <td>http://download.draios.com/stable/rpm/$basearch</td>
+  </tr>
+  <tr>
+    <td><tt>['sysdig']['yum']['gpg_key']</tt></td>
+    <td>String</td>
+    <td>repo key uri</td>
+    <td>https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public</td>
+  </tr>
+  <tr>
+    <td><tt>['sysdig']['apt']['uri']</tt></td>
+    <td>String</td>
+    <td>APT repo uri</td>
+    <td>http://download.draios.com/stable/deb</td>
+  </tr>
+  <tr>
+    <td><tt>['sysdig']['apt']['components']</tt></td>
+    <td>Array</td>
+    <td>Apt repo components</td>
+    <td>["stable-$(ARCH)/"]</td>
+  </tr>
+  <tr>
+    <td><tt>['sysdig']['apt']['key']</tt></td>
+    <td>String</td>
+    <td>repo gpg key uri</td>
+    <td>https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public</td>
+  </tr>
+  <tr>
+    <td><tt>['sysdig']['apt']['key_id']</tt></td>
+    <td>String</td>
+    <td>repo gpg key id</td>
+    <td>EC51E8C4</td>
+  </tr>
 </table>
+
 
 Usage
 -----
