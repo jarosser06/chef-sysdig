@@ -34,16 +34,16 @@ when 'binary'
 
     yum_repository 'sysdig' do
       description 'Official sysdig repository'
-      baseurl 'http://download.draios.com/stable/rpm/$basearch'
-      gpgkey 'https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public'
+      baseurl node['sysdig']['yum']['base_url']
+      gpgkey node['sysdig']['yum']['gpg_key']
       action :create
     end
   when 'debian'
     apt_repository 'sysdig' do
-      uri 'http://download.draios.com/stable/deb'
-      components ["stable-$(ARCH)/"]
-      key 'https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public'
-      not_if 'apt-key list | grep "EC51E8C4"'
+      uri node['sysdig'['apt']['uri']
+      components node['sysdig'['apt']['components']
+      key node ['sysdig'['apt']['key']
+      not_if "apt-key list | grep -i #{node['sysdig']['apt']['key_id']}"
     end
   else
     Chef::Log.error("this distro is not supported")
