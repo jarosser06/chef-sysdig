@@ -40,9 +40,9 @@ when 'binary'
     end
   when 'debian'
     apt_repository 'sysdig' do
-      uri node['sysdig'['apt']['uri']
-      components node['sysdig'['apt']['components']
-      key node ['sysdig'['apt']['key']
+      uri node['sysdig']['apt']['uri']
+      components node['sysdig']['apt']['components']
+      key node ['sysdig']['apt']['key']
       not_if "apt-key list | grep -i #{node['sysdig']['apt']['key_id']}"
     end
   else
