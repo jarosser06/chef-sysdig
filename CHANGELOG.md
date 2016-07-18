@@ -1,6 +1,10 @@
 sysdig CHANGELOG
 ================
 
+0.4.0
+-----
+- [InformatiQ] - Made Yum and Apt repositories configurable with node attributes
+
 0.3.1
 -----
 - [n1koo] - Added optional node attribute for sysdig version
