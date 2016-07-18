@@ -1,6 +1,10 @@
 sysdig CHANGELOG
 ================
 
+0.4.1
+-----
+- [benner] - Fixed Syntax errors
+
 0.4.0
 -----
 - [InformatiQ] - Made Yum and Apt repositories configurable with node attributes
